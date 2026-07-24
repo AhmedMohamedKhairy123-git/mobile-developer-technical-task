@@ -3,19 +3,26 @@ import * as SecureStore from 'expo-secure-store';
 const USER_KEY = 'user_credentials';
 
 export const registerUser = async (username: string, password: string) => {
+    // Store the username and password as a JSON string in encrypted storage
     const credentials = JSON.stringify({ username, password });
     await SecureStore.setItemAsync(USER_KEY, credentials);
+    return true;
 };
 
 export const loginUser = async (username: string, password: string) => {
     const stored = await SecureStore.getItemAsync(USER_KEY);
-    if (!stored) return false;
+    if (!stored) return { success: false, message: "No user found" };
 
     const { username: sUsername, password: sPassword } = JSON.parse(stored);
-    return username === sUsername && password === sPassword;
+
+    if (username === sUsername && password === sPassword) {
+        return { success: true };
+    } else {
+        return { success: false, message: "Invalid credentials" };
+    }
 };
 
 export const logoutUser = async () => {
-    // Requirement says logout feature, we can just clear a session state later
-    // but let's keep the credentials stored as per requirements
+    // For this task, we will handle logout by clearing the app state later.
+    // The credentials remain encrypted in storage for next time.
 };
