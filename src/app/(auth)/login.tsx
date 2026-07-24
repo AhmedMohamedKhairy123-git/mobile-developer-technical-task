@@ -41,9 +41,9 @@ export default function LoginScreen() {
         <View style={styles.container}>
             <Text style={styles.title}>{isRegistering ? "Register" : "Login"}</Text>
 
-            {bestScore !== null && (
+            {!isRegistering && bestScore !== null && (
                 <View style={styles.scoreBadge}>
-                    <Text style={styles.scoreText}>🏆 Best Score: {bestScore} guesses</Text>
+                    <Text style={styles.scoreText}>🏆 Your Best Score: {bestScore} guesses</Text>
                 </View>
             )}
 
@@ -68,7 +68,7 @@ export default function LoginScreen() {
 
             <TouchableOpacity onPress={() => setIsRegistering(!isRegistering)}>
                 <Text style={styles.switchText}>
-                    {isRegistering ? "Need an account? Register" : "Have an account? Login"}
+                    {isRegistering ? "Have an account?Login?" : "Don't have an account? Register"}
                 </Text>
             </TouchableOpacity>
         </View>
