@@ -29,8 +29,8 @@ export default function LoginScreen() {
         } else {
             const result = await loginUser(username, password);
             if (result.success) {
-                // We will navigate to the game in the next step
-                Alert.alert("Logged In", `Welcome back ${username}!`);
+                // NAVIGATION FIX: Using the absolute path to the game screen
+                router.replace('/game');
             } else {
                 Alert.alert("Error", "Invalid username or password");
             }
@@ -42,7 +42,9 @@ export default function LoginScreen() {
             <Text style={styles.title}>{isRegistering ? "Register" : "Login"}</Text>
 
             {bestScore !== null && (
-                <Text style={styles.scoreText}>Your Best Score: {bestScore} guesses</Text>
+                <View style={styles.scoreBadge}>
+                    <Text style={styles.scoreText}>🏆 Best Score: {bestScore} guesses</Text>
+                </View>
             )}
 
             <TextInput
@@ -66,7 +68,7 @@ export default function LoginScreen() {
 
             <TouchableOpacity onPress={() => setIsRegistering(!isRegistering)}>
                 <Text style={styles.switchText}>
-                    {isRegistering ? "Already have an account? Login" : "Don't have an account? Register"}
+                    {isRegistering ? "Need an account? Register" : "Have an account? Login"}
                 </Text>
             </TouchableOpacity>
         </View>
@@ -75,9 +77,10 @@ export default function LoginScreen() {
 
 const styles = StyleSheet.create({
     container: { flex: 1, justifyContent: 'center', padding: 20, backgroundColor: '#f5f5f5' },
-    title: { fontSize: 32, fontWeight: 'bold', marginBottom: 20, textAlign: 'center', color: '#333' },
-    scoreText: { textAlign: 'center', marginBottom: 20, fontSize: 16, color: '#666', fontStyle: 'italic' },
-    input: { backgroundColor: '#fff', padding: 15, borderRadius: 10, marginBottom: 15, borderWidth: 1, borderColor: '#ddd' },
+    title: { fontSize: 32, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' },
+    scoreBadge: { backgroundColor: '#ddd', padding: 10, borderRadius: 8, marginBottom: 20, alignItems: 'center' },
+    scoreText: { fontWeight: 'bold' },
+    input: { backgroundColor: '#fff', padding: 15, borderRadius: 10, marginBottom: 15, borderWidth: 1, borderColor: '#ccc' },
     button: { backgroundColor: '#007AFF', padding: 15, borderRadius: 10, alignItems: 'center' },
     buttonText: { color: '#fff', fontSize: 18, fontWeight: 'bold' },
     switchText: { marginTop: 20, textAlign: 'center', color: '#007AFF' }
