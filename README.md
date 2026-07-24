@@ -65,7 +65,7 @@ npx expo start
 
 ### 4. Run on Your Device
 
-* Scan the generated **QR code** using the **Expo Go** app on your iOS or Android device, or run it on a local emulator.
+* Scan the generated **QR code** using the **Expo Go** app on your iOS or Android device (must be latest version SDX 57 from here:https://expo.dev/go?sdkVersion=57&platform=android&device=true), or run it on a local emulator.
 
 ---
 
