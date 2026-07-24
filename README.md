@@ -1,56 +1,86 @@
-# Welcome to your Expo app 👋
+# 📱 Guess the Number — React Native Mobile App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+> A feature-rich "Guess the Number" mini-game built with **React Native (Expo)**, featuring secure credential storage, local high-score persistence via SQLite, and modern file-based routing. Developed as part of the Mobile Developer hiring process.
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Key Features
 
-   ```bash
-   npm install
-   ```
+* **Cross-Platform Compatibility:** Built with **React Native** and **Expo** for seamless performance on both iOS and Android.
+* **Secure Authentication:**
+* User Registration and Login flow.
+* Credentials stored securely using **AES encryption** via `expo-secure-store`.
 
-2. Start the app
 
-   ```bash
-   npx expo start
-   ```
+* **Engaging Game Logic:**
+* Random number generation between **1 and 43**.
+* Real-time hint system (*Higher / Lower* feedback).
+* Live attempt counter to track current performance.
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+* **Persistent Local Database:**
+* Powered by **SQLite** (`expo-sqlite`) to track personal bests (lowest number of guesses).
+* High score integration: Displays the user's best score right on the login screen upon return.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+* **Modern Navigation:** Utilizes **Expo Router** for clean, file-based routing.
 
-When you're ready, run:
+---
+
+## 🛠️ Tech Stack
+
+* **Framework:** React Native (Expo SDK 57)
+* **Language:** TypeScript
+* **Database:** SQLite (`expo-sqlite`)
+* **Security:** Expo SecureStore
+* **Navigation:** Expo Router
+
+---
+
+## 📦 Installation & Setup
+
+Follow these steps to get the project up and running locally:
+
+### 1. Clone the Repository
 
 ```bash
-npm run reset-project
+git clone https://github.com/AhmedMohamedKhairy123-git/mobile-developer-technical-task.git
+cd mobile-developer-technical-task
+
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Install Dependencies
 
-### Other setup steps
+```bash
+npm install
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+```
 
-## Learn more
+### 3. Start the Application
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+npx expo start
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```
 
-## Join the community
+### 4. Run on Your Device
 
-Join our community of developers creating universal apps.
+* Scan the generated **QR code** using the **Expo Go** app on your iOS or Android device, or run it on a local emulator.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 📁 Project Structure
+
+```text
+mobile-developer-technical-task/
+│
+├── src/
+│   ├── app/        # Application screens and Expo Router navigation logic
+│   └── services/   # Business logic for Auth (SecureStore) and Database (SQLite)
+│
+├── assets/         # Application images, icons, and static resources
+└── README.md
+
+```
+Candidate: Ahmed Mohamed Khairy
+Task: Mobile Developer Technical Task
